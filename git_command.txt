@@ -1,0 +1,6 @@
+git remote add origin https://github.com/hksarkar/Udemy-React-fullstack-flickbase-project.git
+git config --global user.name hksarkar
+git config --global user.email hksarkar@outlook.com
+
+#show git all branches:
+git branch -r
