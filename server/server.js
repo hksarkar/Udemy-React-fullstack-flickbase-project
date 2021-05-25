@@ -3,6 +3,8 @@ const app = express();
 const mongoose  = require('mongoose'); 
 const bodyParser = require('body-parser');
 
+const Users = require('./routes/api/users');
+
 require('dotenv').config()
 
 
@@ -16,6 +18,8 @@ mongoose.connect(mongoUri,{
 
 
 //app.use(bodyParser.json())
+
+app.use('/api/users/',Users);
 
 const port = process.env.PORT || 3002;
 
