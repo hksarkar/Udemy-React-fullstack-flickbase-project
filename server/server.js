@@ -17,7 +17,7 @@ mongoose.connect(mongoUri,{
 })
 
 
-//app.use(bodyParser.json())
+app.use(bodyParser.json())
 
 app.use('/api/users/',Users);
 
