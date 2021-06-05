@@ -1,4 +1,5 @@
 const express  = require('express');
+const { checkLoggedIn } = require('../../middleware/auth');
 let router = express.Router();
 require('dotenv').config();
 
@@ -43,7 +44,7 @@ router.route("/register")
 })
 
 router.route("/signin")
-.post( async(req,res)=>{
+.post(async(req,res)=>{
     try {
         // FIND USER
         let user = await User.findOne({email:req.body.email})
@@ -62,6 +63,12 @@ router.route("/signin")
     } catch(error) {
         res.status(400).json({message:'Error',error: error })
     }
+});
+
+router.route("/profile")
+.get(checkLoggedIn, async (req,res)=>{
+    console.log(req.user);
+    res.status('200').send('ok');
 });
 
 const getUserProps = (user)=>{
